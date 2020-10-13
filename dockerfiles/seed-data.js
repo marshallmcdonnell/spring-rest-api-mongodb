@@ -1,0 +1,19 @@
+db.createCollection("users");
+db.users.insertMany([
+    {
+        name:"Shuffle-T",   
+        role:"Champion"
+    },
+    {
+        name:"Marlo",
+        role:"Champion"
+    },
+    {
+        name:"Dialect",
+        role:"Contender"
+    },
+    {
+        name:"Zen",
+        role:"Contender"
+    }
+]);
