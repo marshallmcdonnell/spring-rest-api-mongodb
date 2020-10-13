@@ -29,4 +29,25 @@ public class UsersController {
   public Users getUsersById(@PathVariable("id") ObjectId id) {
     return repository.findBy_id(id);
   }
+
+  // PUT
+  @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+  public void modifyPetById(@PathVariable("id") ObjectId id, @Valid @RequestBody Users users) {
+    users.set_id(id);
+    repository.save(users);
+  }
+
+  // POST
+  @RequestMapping(value = "", method = RequestMethod.POST)
+  public Users createUser(@Valid @RequestBody Users users) {
+    users.set_id(ObjectId.get());
+    repository.save(users);
+    return users;
+  }
+
+  // DELETE
+  @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+  public void deleteUser(@PathVariable ObjectId id) {
+    repository.delete(repository.findBy_id(id));
+  }
 }
